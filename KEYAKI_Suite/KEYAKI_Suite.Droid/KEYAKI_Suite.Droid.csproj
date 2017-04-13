@@ -146,7 +146,7 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\KEYAKI-Suite\KEYAKI_Suite\KEYAKI_Suite.csproj">
+    <ProjectReference Include="..\KEYAKI_Suite\KEYAKI_Suite.csproj">
       <Project>{f7a4c203-1af3-4d8d-8a91-df2fed833b39}</Project>
       <Name>KEYAKI_Suite</Name>
     </ProjectReference>
