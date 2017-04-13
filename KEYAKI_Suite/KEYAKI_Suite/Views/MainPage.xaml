@@ -5,7 +5,27 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="KEYAKI_Suite.Views.MainPage"
              Title="MainPage">
-  <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-    <Label Text="{Binding Title}" />
-  </StackLayout>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Setting"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ListView ItemsSource="{Binding NewsDatas}" HasUnevenRows="True">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" Margin="10">
+                        <Image HeightRequest="100" WidthRequest="100" Source="{Binding ImagePath}"></Image>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Text}" Grid.Row="0" FontAttributes="Bold"></Label>
+                            <Label Text="{Binding Detail}" Grid.Row="1" ></Label>
+                        </Grid>
+                    </StackLayout>
+                </ViewCell>
+
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

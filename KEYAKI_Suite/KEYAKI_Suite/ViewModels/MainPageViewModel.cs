@@ -4,21 +4,19 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using KEYAKI_Suite.Model;
+using Microsoft.Practices.ObjectBuilder2;
+using Reactive.Bindings;
 
 namespace KEYAKI_Suite.ViewModels
 {
     public class MainPageViewModel : BindableBase, INavigationAware
     {
-        private string _title;
-        public string Title
-        {
-            get { return _title; }
-            set { SetProperty(ref _title, value); }
-        }
-
+        public ReactiveCollection<NewsData> NewsDatas { get; set; } = new ReactiveCollection<NewsData>();
         public MainPageViewModel()
         {
-
+            var keyakiNewsModel = new KEYAKINewsModel();
+            keyakiNewsModel.GetNewsDatas().ForEach(data => NewsDatas.Add(data));
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -33,8 +31,6 @@ namespace KEYAKI_Suite.ViewModels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            if (parameters.ContainsKey("title"))
-                Title = (string)parameters["title"] + " and Prism";
         }
     }
 }
