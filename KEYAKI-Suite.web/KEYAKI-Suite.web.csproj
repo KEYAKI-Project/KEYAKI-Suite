@@ -6,6 +6,8 @@
     <ApplicationInsightsAnnotationResourceId>/subscriptions/41bca5f9-c489-4fcd-b7e1-3da7b8ce3a36/resourcegroups/KEYAKI/providers/microsoft.insights/components/KEYAKI-Suite</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='iOS Release|AnyCPU'" />
+
   <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
