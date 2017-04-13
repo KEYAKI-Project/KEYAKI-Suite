@@ -12,12 +12,15 @@ namespace KEYAKI_Suite.ViewModels
 {
     public class MainPageViewModel : BindableBase, INavigationAware
     {
-        public ReactiveCollection<NewsData> NewsDatas { get; set; } = new ReactiveCollection<NewsData>();
-        public MainPageViewModel()
+        private KEYAKINewsModel _keyakiNewsModel;
+        public ReactiveCollection<NewsData> NewsDatas { get; set; }
+        public MainPageViewModel(KEYAKINewsModel keyakiNewsModel)
         {
-            var keyakiNewsModel = new KEYAKINewsModel();
-            keyakiNewsModel.GetNewsDatas().ForEach(data => NewsDatas.Add(data));
+            _keyakiNewsModel = keyakiNewsModel;
+            _keyakiNewsModel.GetNewsDatas();
+            NewsDatas = _keyakiNewsModel.NewsDatas;
         }
+
 
         public void OnNavigatedFrom(NavigationParameters parameters)
         {
