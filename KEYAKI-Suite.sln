@@ -298,6 +298,8 @@ Global
 		{8FC50D95-5D6A-43DE-BE50-5171EBB04403}.Release|ARM.Deploy.0 = Release|ARM
 		{8FC50D95-5D6A-43DE-BE50-5171EBB04403}.Release|iPhone.ActiveCfg = Release|x86
 		{8FC50D95-5D6A-43DE-BE50-5171EBB04403}.Release|iPhoneSimulator.ActiveCfg = Release|x86
+		{8FC50D95-5D6A-43DE-BE50-5171EBB04403}.Release|iPhoneSimulator.Build.0 = Release|x86
+		{8FC50D95-5D6A-43DE-BE50-5171EBB04403}.Release|iPhoneSimulator.Deploy.0 = Release|x86
 		{8FC50D95-5D6A-43DE-BE50-5171EBB04403}.Release|x64.ActiveCfg = Release|x64
 		{8FC50D95-5D6A-43DE-BE50-5171EBB04403}.Release|x64.Build.0 = Release|x64
 		{8FC50D95-5D6A-43DE-BE50-5171EBB04403}.Release|x64.Deploy.0 = Release|x64
