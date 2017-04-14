@@ -1,12 +1,10 @@
-﻿using Prism.Commands;
+﻿using System.Linq;
+using System.Reactive.Linq;
 using Prism.Mvvm;
 using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using KEYAKI_Suite.Model;
-using Microsoft.Practices.ObjectBuilder2;
 using Reactive.Bindings;
+using Reactive.Bindings.Extensions;
 
 namespace KEYAKI_Suite.ViewModels
 {
