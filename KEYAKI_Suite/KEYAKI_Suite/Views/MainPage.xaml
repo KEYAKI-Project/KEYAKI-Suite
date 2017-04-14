@@ -8,7 +8,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Setting"></ToolbarItem>
     </ContentPage.ToolbarItems>
-    <ListView ItemsSource="{Binding NewsDatas}" HasUnevenRows="True">
+    <ListView ItemsSource="{Binding NewsDatas}" HasUnevenRows="True" SelectedItem="{Binding TappedNewsData}" ItemTapped="{Binding NewsTappedEvent}">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>

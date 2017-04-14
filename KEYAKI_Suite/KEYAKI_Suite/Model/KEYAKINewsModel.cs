@@ -41,9 +41,15 @@ namespace KEYAKI_Suite.Model
                         .First()
                         .InnerText;
 
+                    var Link = htmlNode.Descendants("div")
+                        .First(node1 => node1.GetAttributeValue("class", "") == "text")
+                        .Descendants("a")
+                        .First()
+                        .GetAttributeValue("href", "");
+
                     var ImagePath = "http://design-ec.com/d/e_others_50/l_e_others_501.png";
 
-                    NewsDatas.Add(new NewsData { ImagePath = ImagePath, Text = Text, Detail = Detail });
+                    NewsDatas.Add(new NewsData { ImagePath = ImagePath, Text = Text, Detail = Detail, Link = Link});
                 });
 
             }
