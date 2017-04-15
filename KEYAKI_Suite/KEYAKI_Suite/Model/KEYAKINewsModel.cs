@@ -49,7 +49,7 @@ namespace KEYAKI_Suite.Model
 
                     var ImagePath = "http://design-ec.com/d/e_others_50/l_e_others_501.png";
 
-                    NewsDatas.Add(new NewsData { ImagePath = ImagePath, Text = Text, Detail = Detail, Link = Link});
+                    NewsDatas.Add(new NewsData { ImagePath = ImagePath, Text = Text, Detail = Detail, Link = "http://www.keyakizaka46.com/" + Link});
                 });
 
             }

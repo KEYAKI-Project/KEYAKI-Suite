@@ -13,10 +13,9 @@ namespace KEYAKI_Suite.ViewModels
     public class MainPageViewModel : BindableBase, INavigationAware
     {
         private KEYAKINewsModel _keyakiNewsModel;
+        
 
-        public ReactiveProperty<NewsData> TappedNewsData { get; set; } = new ReactiveProperty<NewsData>();
-
-        public ReactiveCommand NewsTappedEvent { get; set; } = new ReactiveCommand();
+        public ReactiveCommand<SelectedItemChangedEventArgs> NewsTappedEvent { get; set; } = new ReactiveCommand<SelectedItemChangedEventArgs>();
 
         public ReactiveCollection<NewsData> NewsDatas { get; set; }
         public MainPageViewModel(KEYAKINewsModel keyakiNewsModel)
@@ -27,7 +26,8 @@ namespace KEYAKI_Suite.ViewModels
             
             NewsTappedEvent
                 .Where(o => NewsDatas.Count != 0)
-                .Subscribe(o => Device.OpenUri(new Uri(TappedNewsData.Value.Link)));
+                .Select(args => args.SelectedItem as NewsData)
+                .Subscribe(o => Device.OpenUri(new Uri(o.Link)));
         }
 
 
