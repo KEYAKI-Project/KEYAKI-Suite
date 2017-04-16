@@ -4,6 +4,7 @@ using Prism.Mvvm;
 using Prism.Navigation;
 using KEYAKI_Suite.Model;
 using  System;
+using KEYAKI_Suite.Views;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 using Xamarin.Forms;
@@ -13,17 +14,22 @@ namespace KEYAKI_Suite.ViewModels
     public class MainPageViewModel : BindableBase, INavigationAware
     {
         private KEYAKINewsModel _keyakiNewsModel;
-        
+        private readonly INavigationService _navigationService;
 
         public ReactiveCommand<NewsData> NewsTappedEvent { get; set; } = new ReactiveCommand<NewsData>();
-
+        public ReactiveCommand NavigateSettingPageCommand { get; set; } = new ReactiveCommand();
         public ReactiveCollection<NewsData> NewsDatas { get; set; }
-        public MainPageViewModel(KEYAKINewsModel keyakiNewsModel)
+        public MainPageViewModel(KEYAKINewsModel keyakiNewsModel, INavigationService navigationService)
         {
             _keyakiNewsModel = keyakiNewsModel;
-            _keyakiNewsModel.GetNewsDatas();
+            _navigationService = navigationService;
             NewsDatas = _keyakiNewsModel.NewsDatas;
-            
+
+            NavigateSettingPageCommand.Subscribe(o =>
+            {
+                navigationService.NavigateAsync(nameof(SettingPage));
+            });
+
             NewsTappedEvent
                 .Where(o => NewsDatas.Count != 0)
                 .Where(o => o != null)

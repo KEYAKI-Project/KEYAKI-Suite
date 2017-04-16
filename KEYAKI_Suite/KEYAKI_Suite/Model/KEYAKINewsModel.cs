@@ -14,6 +14,11 @@ namespace KEYAKI_Suite.Model
     {
         public ReactiveCollection<NewsData> NewsDatas { get; set; } = new ReactiveCollection<NewsData>();
 
+        public KEYAKINewsModel()
+        {
+            GetNewsDatas();
+        }
+
         public async void GetNewsDatas()
         {
             using (var client = new HttpClient())

@@ -13,7 +13,14 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Setting"></ToolbarItem>
+        <ToolbarItem Text="Setting" Command="{Binding NavigateSettingPageCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource"
+                            iOS="settings.png"
+                            Android="settings.png"
+                            WinPhone="Assets/settings.png" />
+            </ToolbarItem.Icon>
+        </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ListView ItemsSource="{Binding NewsDatas}" HasUnevenRows="True" >
         <ListView.Behaviors>
