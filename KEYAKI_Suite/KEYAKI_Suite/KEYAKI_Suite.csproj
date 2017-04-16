@@ -44,6 +44,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Converter\NotItemSelectedBehavior.cs" />
     <Compile Include="Converter\SelectedItemChangedEventArgsToSelectedItemConverter.cs" />
     <Compile Include="Model\KEYAKINewsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

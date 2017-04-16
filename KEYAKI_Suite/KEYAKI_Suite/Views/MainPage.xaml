@@ -7,13 +7,18 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="KEYAKI_Suite.Views.MainPage"
              Title="MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:SelectedItemChangedEventArgsToSelectedItemConverter x:Key="SelectedItemChangedEventArgsToSelectedItemConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Setting"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <ListView ItemsSource="{Binding NewsDatas}" HasUnevenRows="True" >
         <ListView.Behaviors>
-            <local:SelectedItemChangedEventArgsToSelectedItemConverter Command="{Binding NewsTappedEvent}"/>
-                                          
+            <local:NotSelectableListViewBehavior />
+            <behaviors:EventToCommandBehavior EventName="ItemSelected" EventArgsConverter="{x:StaticResource SelectedItemChangedEventArgsToSelectedItemConverter}" Command="{Binding NewsTappedEvent}"/>
         </ListView.Behaviors>
         <ListView.ItemTemplate>
             <DataTemplate>

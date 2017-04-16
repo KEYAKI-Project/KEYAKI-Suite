@@ -15,7 +15,7 @@ namespace KEYAKI_Suite.ViewModels
         private KEYAKINewsModel _keyakiNewsModel;
         
 
-        public ReactiveCommand<SelectedItemChangedEventArgs> NewsTappedEvent { get; set; } = new ReactiveCommand<SelectedItemChangedEventArgs>();
+        public ReactiveCommand<NewsData> NewsTappedEvent { get; set; } = new ReactiveCommand<NewsData>();
 
         public ReactiveCollection<NewsData> NewsDatas { get; set; }
         public MainPageViewModel(KEYAKINewsModel keyakiNewsModel)
@@ -26,7 +26,7 @@ namespace KEYAKI_Suite.ViewModels
             
             NewsTappedEvent
                 .Where(o => NewsDatas.Count != 0)
-                .Select(args => args.SelectedItem as NewsData)
+                .Where(o => o != null)
                 .Subscribe(o => Device.OpenUri(new Uri(o.Link)));
         }
 
