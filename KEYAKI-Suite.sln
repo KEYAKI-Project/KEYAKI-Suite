@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KEYAKI-Suite.define", "KEYA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KEYAKI_Suite.License", "KEYAKI_Suite.License\KEYAKI_Suite.License.csproj", "{8955EFC6-FA7D-4171-A804-974AB97C0EE5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{5137B49D-4423-45FB-8ED5-F36F388C46AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
