@@ -5,6 +5,7 @@ using Reactive.Bindings;
 using HttpClient = System.Net.Http.HttpClient;
 using KEYAKI_Suite.YoutubeService;
 using KEYAKI_Suit.YoutubeService;
+using System.Linq;
 
 namespace KEYAKI_Suite.Model
 {
@@ -22,7 +23,7 @@ namespace KEYAKI_Suite.Model
 		private async void GetData()
 		{
 			var youtubecollection = await Youtubeservice.GetYoutubeDataAsync();
-			youtubecollection.items.ForEach(item => Youtube.Add(item));
+			youtubecollection.items.Where(item => item != null).ForEach(item => Youtube.Add(item));
 		}
 
 	}

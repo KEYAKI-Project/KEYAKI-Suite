@@ -11,7 +11,7 @@ namespace KEYAKI_Suite.YoutubeService.Test
 		public async void TestCase()
 		{
 			var hoge = await youtubeservice.GetYoutubeDataAsync();
-			hoge.items.Length.IsNotNull();
+			Assert.IsNotNull(hoge);
 
 		}
 	}
