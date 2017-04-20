@@ -55,7 +55,6 @@
       <DependentUpon>SettingPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Defines\NewsData.cs" />
-    <Compile Include="Defines\YoutubeData.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -136,9 +135,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KEYAKI-Suite\KEYAKI-Suite.define.csproj">
-      <Project>{52498c57-4f42-46dc-a6a3-919db12d9c58}</Project>
-      <Name>KEYAKI-Suite.define</Name>
+    <ProjectReference Include="..\..\KEYAKI_Suite.YoutubeService.Test\KEYAKI_Suite.YoutubeService\KEYAKI_Suite.YoutubeService.csproj">
+      <Project>{3DE09B8A-772B-4455-A112-89AC3A01B793}</Project>
+      <Name>KEYAKI_Suite.YoutubeService</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

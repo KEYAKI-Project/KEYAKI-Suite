@@ -62,7 +62,7 @@
                             Android=""
                             WinPhone="" />
             </ContentPage.Icon>
-            <ListView ItemsSource="{Binding Snippets}" HasUnevenRows="True">
+            <ListView ItemsSource="{Binding Items}" HasUnevenRows="True">
                 <ListView.Behaviors>
                     <local:NotSelectableListViewBehavior />
                     <behaviors:EventToCommandBehavior EventName="ItemSelected" EventArgsConverter="{x:StaticResource SelectedItemChangedEventArgsToSelectedItemConverter}" Command="{Binding YoutubeTapCommand}"/>
