@@ -15,26 +15,19 @@ namespace KEYAKI_Suite.ViewModels
 	{
 		private KEYAKINewsModel _keyakiNewsModel;
 		private YoutubeModel _youtubeModel;
-		private readonly INavigationService _navigationService;
 
 		public ReactiveCommand<NewsData> NewsTappedEvent { get; set; } = new ReactiveCommand<NewsData>();
 		public ReactiveCommand<Item> YoutubeTapCommand { get; set; } = new ReactiveCommand<Item>();
-		public ReactiveCommand NavigateSettingPageCommand { get; set; } = new ReactiveCommand();
 		public ReactiveCollection<NewsData> NewsDatas { get; set; }
 		public ReactiveCollection<Item> Snippets { get; set; }
-		public MainPageViewModel(KEYAKINewsModel keyakiNewsModel, INavigationService navigationService, YoutubeModel youtubeModel)
+		public MainPageViewModel(KEYAKINewsModel keyakiNewsModel, YoutubeModel youtubeModel)
 		{
 			_keyakiNewsModel = keyakiNewsModel;
-			_navigationService = navigationService;
 			_youtubeModel = youtubeModel;
 
 			NewsDatas = _keyakiNewsModel.NewsDatas;
 			Snippets = _youtubeModel.YoutubeCollection;
 
-			NavigateSettingPageCommand.Subscribe(o =>
-			{
-				navigationService.NavigateAsync(nameof(SettingPage));
-			});
 
 			YoutubeTapCommand
 				.Where(o => Snippets.Count != 0)

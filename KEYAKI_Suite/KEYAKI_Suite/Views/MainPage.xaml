@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
@@ -8,10 +8,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="KEYAKI_Suite.Views.MainPage"
              Title="MainPage">
-    <TabbedPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness"
-                    iOS="0,20,0,0"/>
-    </TabbedPage.Padding>
+	
     <TabbedPage.Resources>
         <ResourceDictionary>
             <local:SelectedItemChangedEventArgsToSelectedItemConverter x:Key="SelectedItemChangedEventArgsToSelectedItemConverter"/>
@@ -26,6 +23,9 @@
     </TabbedPage.ToolbarItems>
     <TabbedPage.Children>
         <ContentPage Title="KEYAKI News">
+			<ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"/>
+    </ContentPage.Padding>
             <ContentPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
                             iOS="Google News_50px.png"
@@ -53,6 +53,9 @@
             </ListView>
         </ContentPage>
         <ContentPage Title="Youtube">
+			<ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"/>
+    </ContentPage.Padding>
             <ContentPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
                             iOS="YouTube 2_50px.png"

@@ -21,7 +21,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>6.0</string>
+	<string>10.3</string>
 	<key>CFBundleDisplayName</key>
 	<string>KEYAKI_Suite</string>
 	<key>CFBundleVersion</key>
@@ -47,6 +47,8 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleIdentifier</key>
-	<string>nagoya.kuxu.keyaki</string>
+	<string>nagoya.kuxu.keyaki.suite</string>
+	<key>CFBundleName</key>
+	<string>KEYAKI_Suite</string>
 </dict>
 </plist>
