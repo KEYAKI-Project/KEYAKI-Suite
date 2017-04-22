@@ -1,9 +1,6 @@
 ﻿
 using Microsoft.Practices.ObjectBuilder2;
-using Newtonsoft.Json;
 using Reactive.Bindings;
-using HttpClient = System.Net.Http.HttpClient;
-using KEYAKI_Suite.YoutubeService;
 using KEYAKI_Suit.YoutubeService;
 using System.Linq;
 
