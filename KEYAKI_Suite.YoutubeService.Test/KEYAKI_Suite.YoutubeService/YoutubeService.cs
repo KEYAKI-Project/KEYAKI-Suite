@@ -15,7 +15,7 @@ namespace KEYAKI_Suite.YoutubeService
 
 		private YoutubeData Json2YoutubeData(string json)
 		{
-			return JsonConvert.DeserializeObject(json) as YoutubeData;
+		    return JsonConvert.DeserializeObject<YoutubeData>(json);
 		}
 
 		private async Task<string> GetYoutubeDataAPI()
@@ -26,8 +26,7 @@ namespace KEYAKI_Suite.YoutubeService
 				{
 					var Httpresult = await client.GetAsync("https://www.googleapis.com/youtube/v3/search?maxResults=20&part=snippet&channelId=UCmr9bYmymcBmQ1p2tLBRvwg&key=AIzaSyCy34PAhxHZixbSsVkpqWfpOs18dd90FgY");
 					var json = await Httpresult.Content.ReadAsStringAsync();
-					if (json == null) return "";
-					return json;
+					return json ?? "";
 				}
 				catch (Exception)
 				{
