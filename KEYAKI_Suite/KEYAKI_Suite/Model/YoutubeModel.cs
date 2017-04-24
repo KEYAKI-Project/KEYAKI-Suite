@@ -1,12 +1,12 @@
 ﻿
 using Microsoft.Practices.ObjectBuilder2;
 using Reactive.Bindings;
-using KEYAKI_Suit.YoutubeService;
 using System.Linq;
+using KEYAKI_Suit.YoutubeService;
 
 namespace KEYAKI_Suite.Model
 {
-	public class YoutubeModel
+    public class YoutubeModel
 	{
 		public ReactiveCollection<Item> Youtube { get; set; } = new ReactiveCollection<Item>();
 
