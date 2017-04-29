@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Linq;
+using NUnit.Framework;
 using System.Threading.Tasks;
 using KEYAKI_Suit.YoutubeService;
 
@@ -13,6 +14,12 @@ namespace KEYAKI_Suite.YoutubeService.Test
 	    public async Task YoutubeのAPIからデータを取得できているか()
 	    { 
 	      (await youtubeservice.GetYoutubeDataAsync()).items.Length.IsNot(0);
+	        var youtubedata = await youtubeservice.GetYoutubeDataAsync();
+            youtubedata.IsNotNull();
+            youtubedata.items.Length.IsNot(0);
+	        var snippet = youtubedata.items.First().snippet;
+            snippet.title.IsNot("");
+
 	    }
 
 		[Test()]

@@ -49,6 +49,7 @@
     <Compile Include="Model\KEYAKINewsModel.cs" />
     <Compile Include="Model\YoutubeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositry\KeyakiBlogDataRepositry.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\SettingPageViewModel.cs" />
     <Compile Include="Views\SettingPage.xaml.cs">
@@ -125,6 +126,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\KEYAKI_Suite.KEYAKIBlogService\KEYAKI_Suite.KEYAKIBlogService.csproj">
+      <Project>{3e7d2d19-f218-4e95-bdbc-1de91a758eb4}</Project>
+      <Name>KEYAKI_Suite.KEYAKIBlogService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\KEYAKI_Suite.KEYAKINewsService\KEYAKI_Suite.KEYAKINewsService.csproj">
       <Project>{67f9d3a8-f71e-4428-913f-c37ae82cdb24}</Project>
       <Name>KEYAKI_Suite.KEYAKINewsService</Name>

@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 using System.Threading.Tasks;
 
 
@@ -7,7 +8,13 @@ namespace KEYAKI_Suite.KEYAKIBlogService.Test
     [TestFixture]
     public class TestClass
     {
-        private KEYAKIBlogService KeyakiBlogService => new KEYAKIBlogService();
+        private KeyakiBlogService KeyakiBlogService => new KeyakiBlogService();
+
+        [Test]
+        public async Task 欅坂46のブログから情報を取得できているかのテスト()
+        {
+            (await KeyakiBlogService.GetBlogData() as List<KEYAKIBlogData>).IsNotNull();
+        }
 
         [Test]
         public void 欅坂46のブログURLが正常に作成されているかのテスト()

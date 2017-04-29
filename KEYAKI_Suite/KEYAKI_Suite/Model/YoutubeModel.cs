@@ -10,18 +10,20 @@ namespace KEYAKI_Suite.Model
 	{
 		public ReactiveCollection<Item> Youtube { get; set; } = new ReactiveCollection<Item>();
 
-		public YoutubeService.YoutubeService Youtubeservice { get; set; } = new YoutubeService.YoutubeService();
 
 		public YoutubeModel()
 		{
 			GetData();
 		}
 
-		private async void GetData()
+		public async void GetData()
 		{
-			var youtubecollection = await Youtubeservice.GetYoutubeDataAsync();
-			youtubecollection.items.Where(item => item != null).ForEach(item => Youtube.Add(item));
-		}
+
+		    var newservice = new YoutubeService.YoutubeService();
+		    var newss = await newservice.GetYoutubeDataAsync();
+		    newss.items.ForEach(item => Youtube.Add(item));
+
+        }
 
 	}
 }

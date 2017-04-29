@@ -7,8 +7,15 @@ using AgilityExtension;
 
 namespace KEYAKI_Suite.KEYAKIBlogService
 {
-    public class KEYAKIBlogService 
+    public class KeyakiBlogService 
 	{
+	    public async Task<List<KEYAKIBlogData>> GetBlogData()
+	    {
+	        var url = GenerateKEYAKIBlogURL(0);
+	        var htmlText = await GetKEYAKIBLoghtmlAsync(url);
+	        return AnalyzeHTML(htmlText);
+	    }
+
 	    private List<KEYAKIBlogData> AnalyzeHTML(string html)
 	    {
 	        if (string.IsNullOrWhiteSpace(html)) return null;
@@ -22,7 +29,7 @@ namespace KEYAKI_Suite.KEYAKIBlogService
 	            .Descendants("article")
 	            .ToList();
 
-	        return blogList.Select(node =>
+	        var blogdata = blogList.Select(node =>
 	            {
 	                var title = node
 	                    .ChindSelectByClass("innerHead")
@@ -48,10 +55,23 @@ namespace KEYAKI_Suite.KEYAKIBlogService
 
 	                var postdata = new DateTime(postyears, postmanth, postdays, posthours, postminutes, 0);
 
-	                return new KEYAKIBlogData{Title = title,PostDatetime = postdata,PostWriter = postmember};
+	                var imageUrl = node.ChindSelectByClass("box-article")
+	                    .Descendants("img")
+                        .First()
+	                    .GetAttributeValue("src", "");
+
+	                var blogURL = node
+	                    .ChindSelectByClass("innerHead")
+	                    .ChindSelectByClass("box-ttl")
+	                    .Descendants("h3").Single()
+	                    .Descendants("a").Single()
+                        .GetAttributeValue("href", "");
+
+	                return new KEYAKIBlogData{Title = title,PostDatetime = postdata,PostWriter = postmember, ImageURL = imageUrl, URL = blogURL };
 	            })
 	            .ToList();
-        }
+	        return blogdata;
+	    }
 
 	    private async Task<string> GetKEYAKIBLoghtmlAsync(string url)
 	    {
