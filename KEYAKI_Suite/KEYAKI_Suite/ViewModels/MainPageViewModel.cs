@@ -16,8 +16,8 @@ namespace KEYAKI_Suite.ViewModels
 {
 	public class MainPageViewModel : BindableBase, INavigationAware
 	{
-		private KEYAKINewsModel _keyakiNewsModel;
-		private YoutubeModel _youtubeModel;
+		private KEYAKINewsRepositry _keyakiNewsModel;
+		private YoutubeDataRepositry _youtubeModel;
 	    private KeyakiMatomeSiteDataRepostiry KeyakiMatomeSiteDataRepostiry;
 
 		public ReactiveCommand<NewsData> NewsTappedEvent { get; set; } = new ReactiveCommand<NewsData>();
@@ -29,7 +29,7 @@ namespace KEYAKI_Suite.ViewModels
 	    public ReactiveCollection<KEYAKIBlogData> KeyakiBlogDatas { get; set; }
 		public ReactiveCollection<Item> Items { get; set; }
 	    public ReactiveCollection<KEYAKIMatomeData> KeyakiMatomeDatas { get; set; }
-        public MainPageViewModel(KEYAKINewsModel keyakiNewsModel, YoutubeModel youtubeModel, KeyakiBlogDataRepositry blogDataRepositry, KeyakiMatomeSiteDataRepostiry keyakiMatomeSiteDataRepostiry)
+        public MainPageViewModel(KEYAKINewsRepositry keyakiNewsModel, YoutubeDataRepositry youtubeModel, KeyakiBlogDataRepositry blogDataRepositry, KeyakiMatomeSiteDataRepostiry keyakiMatomeSiteDataRepostiry)
 		{
 			_keyakiNewsModel = keyakiNewsModel;
 			_youtubeModel = youtubeModel;
