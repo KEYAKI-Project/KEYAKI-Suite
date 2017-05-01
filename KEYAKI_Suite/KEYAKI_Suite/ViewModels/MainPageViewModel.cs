@@ -1,10 +1,7 @@
-﻿using System.Linq;
-using System.Reactive.Linq;
+﻿using System.Reactive.Linq;
 using Prism.Mvvm;
 using Prism.Navigation;
-using KEYAKI_Suite.Model;
 using System;
-using KEYAKI_Suite.Views;
 using Reactive.Bindings;
 using Xamarin.Forms;
 using KEYAKI_Suit.YoutubeService;
