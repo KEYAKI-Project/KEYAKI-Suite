@@ -2,14 +2,13 @@
 using Prism.Mvvm;
 using Reactive.Bindings;
 
-
-namespace KEYAKI_Suite.Model
+namespace KEYAKI_Suite.Repositry
 {
-    public class KEYAKINewsModel: BindableBase
+    public class KEYAKINewsRepositry: BindableBase
     {
         public ReactiveCollection<NewsData> NewsDatas { get; set; } = new ReactiveCollection<NewsData>();
 
-        public KEYAKINewsModel()
+        public KEYAKINewsRepositry()
         {
             GetNewsDatas();
         }

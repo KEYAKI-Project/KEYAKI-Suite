@@ -1,29 +1,24 @@
-﻿
+﻿using KEYAKI_Suit.YoutubeService;
 using Microsoft.Practices.ObjectBuilder2;
 using Reactive.Bindings;
-using System.Linq;
-using KEYAKI_Suit.YoutubeService;
 
-namespace KEYAKI_Suite.Model
+namespace KEYAKI_Suite.Repositry
 {
-    public class YoutubeModel
+    public class YoutubeDataRepositry
 	{
 		public ReactiveCollection<Item> Youtube { get; set; } = new ReactiveCollection<Item>();
 
 
-		public YoutubeModel()
+		public YoutubeDataRepositry()
 		{
 			GetData();
 		}
 
 		public async void GetData()
 		{
-
 		    var newservice = new YoutubeService.YoutubeService();
 		    var newss = await newservice.GetYoutubeDataAsync();
 		    newss.items.ForEach(item => Youtube.Add(item));
-
         }
-
 	}
 }
