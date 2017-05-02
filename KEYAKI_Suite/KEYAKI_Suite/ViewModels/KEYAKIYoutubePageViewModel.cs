@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reactive.Linq;
 using KEYAKI_Suit.YoutubeService;
 using KEYAKI_Suite.Repositry;
+using KEYAKI_Suite.UseCase;
 using Reactive.Bindings;
 using Xamarin.Forms;
 
@@ -13,19 +14,20 @@ namespace KEYAKI_Suite.ViewModels
 {
     public class KEYAKIYoutubePageViewModel : BindableBase
     {
-        private YoutubeDataRepositry _youtubeModel;
+        private readonly KeyakiYoutubeListUseCase KeyakiYoutubeListUseCase;
 
         public ReactiveCommand<Item> YoutubeTapCommand { get; set; } = new ReactiveCommand<Item>();
 
         public ReactiveCollection<Item> YoutubeItems { get; set; }
 
-        public KEYAKIYoutubePageViewModel(YoutubeDataRepositry youtubeModel)
+        public KEYAKIYoutubePageViewModel(KeyakiYoutubeListUseCase keyakiYoutubeListUseCase)
         {
-            _youtubeModel = youtubeModel;
+            KeyakiYoutubeListUseCase = keyakiYoutubeListUseCase;
 
-            YoutubeItems = _youtubeModel.Youtube;
 
-            _youtubeModel.GetData();
+            YoutubeItems = KeyakiYoutubeListUseCase.YoutubeDatas;
+
+            KeyakiYoutubeListUseCase.FetchYoutubeData();
 
             YoutubeTapCommand
                 .Where(o => YoutubeItems.Count != 0)
