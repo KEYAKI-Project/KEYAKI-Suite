@@ -2,6 +2,7 @@
 using System;
 using System.Reactive.Linq;
 using KEYAKI_Suite.MatomeService;
+
 using KEYAKI_Suite.Repositry;
 using KEYAKI_Suite.UseCase;
 using Reactive.Bindings;
@@ -9,7 +10,7 @@ using Xamarin.Forms;
 
 namespace KEYAKI_Suite.ViewModels
 {
-    public class KEYAKIMatomePageViewModel : BindableBase
+    public class KeyakiMatomePageViewModel : BindableBase
     {
         private readonly KeyakiMatomeListUseCase KeyakiMatomeListUseCase;
 

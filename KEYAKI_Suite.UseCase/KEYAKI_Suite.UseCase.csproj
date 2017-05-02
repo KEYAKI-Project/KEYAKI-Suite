@@ -38,6 +38,7 @@
     <Compile Include="KeyakiBlogListUseCase.cs" />
     <Compile Include="KeyakiMatomeListUseCase.cs" />
     <Compile Include="KeyakiNewsListUseCase.cs" />
+    <Compile Include="KeyakisakaMatomeListUseCase.cs" />
     <Compile Include="KeyakiYoutubeListUseCase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
