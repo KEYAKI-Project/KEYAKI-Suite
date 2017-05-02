@@ -1,11 +1,8 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reactive.Linq;
 using KEYAKI_Suite.KEYAKIBlogService;
-using KEYAKI_Suite.Repositry;
+using KEYAKI_Suite.UseCase;
 using Reactive.Bindings;
 using Xamarin.Forms;
 
@@ -13,15 +10,18 @@ namespace KEYAKI_Suite.ViewModels
 {
     public class KEYAKIBlogPageViewModel : BindableBase
     {
-        private readonly KeyakiBlogDataRepositry BlogDataRepositry;
+        private readonly KeyakiBlogListUseCase BlogListUseCase;
         public ReactiveCommand<KEYAKIBlogData> BlogItemTapCommand { get; set; } = new ReactiveCommand<KEYAKIBlogData>();
 
         public ReactiveCollection<KEYAKIBlogData> KeyakiBlogDatas { get; set; }
 
-        public KEYAKIBlogPageViewModel(KeyakiBlogDataRepositry blogDataRepositry)
+        public KEYAKIBlogPageViewModel(KeyakiBlogListUseCase blogListUseCase)
         {
-            BlogDataRepositry = blogDataRepositry;
-            KeyakiBlogDatas = blogDataRepositry.KeyakiBlogDatas;
+            BlogListUseCase = blogListUseCase;
+
+            KeyakiBlogDatas = BlogListUseCase.KeyakiBlogDatas;
+
+            BlogListUseCase.FetchBlogData();
 
             BlogItemTapCommand
                 .Where(data => data != null)
