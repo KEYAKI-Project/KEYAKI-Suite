@@ -139,28 +139,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\KEYAKI_Suite.KEYAKIBlogService\KEYAKI_Suite.KEYAKIBlogService.csproj">
-      <Project>{3e7d2d19-f218-4e95-bdbc-1de91a758eb4}</Project>
-      <Name>KEYAKI_Suite.KEYAKIBlogService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\KEYAKI_Suite.KEYAKINewsService\KEYAKI_Suite.KEYAKINewsService.csproj">
-      <Project>{67f9d3a8-f71e-4428-913f-c37ae82cdb24}</Project>
-      <Name>KEYAKI_Suite.KEYAKINewsService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\KEYAKI_Suite.MatomeService\KEYAKI_Suite.MatomeService.csproj">
-      <Project>{fead2939-2cb8-49c3-b046-3f3f15dd17b0}</Project>
-      <Name>KEYAKI_Suite.MatomeService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\KEYAKI_Suite.UseCase\KEYAKI_Suite.UseCase.csproj">
-      <Project>{0da22292-1c43-4687-9af7-35d4552ce3ed}</Project>
-      <Name>KEYAKI_Suite.UseCase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\KEYAKI_Suite.YoutubeService.Test\KEYAKI_Suite.YoutubeService\KEYAKI_Suite.YoutubeService.csproj">
-      <Project>{3de09b8a-772b-4455-a112-89ac3a01b793}</Project>
-      <Name>KEYAKI_Suite.YoutubeService</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Views\KEYAKINewsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -183,6 +161,32 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\KEYAKI_Suite.KEYAKIBlogService\KEYAKI_Suite.KEYAKIBlogService.csproj">
+      <Project>{3E7D2D19-F218-4E95-BDBC-1DE91A758EB4}</Project>
+      <Name>KEYAKI_Suite.KEYAKIBlogService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\KEYAKI_Suite.KEYAKINewsService\KEYAKI_Suite.KEYAKINewsService.csproj">
+      <Project>{67F9D3A8-F71E-4428-913F-C37AE82CDB24}</Project>
+      <Name>KEYAKI_Suite.KEYAKINewsService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\KEYAKI_Suite.MatomeService\KEYAKI_Suite.MatomeService.csproj">
+      <Project>{FEAD2939-2CB8-49C3-B046-3F3F15DD17B0}</Project>
+      <Name>KEYAKI_Suite.MatomeService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\KEYAKI_Suite.UseCase\KEYAKI_Suite.UseCase.csproj">
+      <Project>{0DA22292-1C43-4687-9AF7-35D4552CE3ED}</Project>
+      <Name>KEYAKI_Suite.UseCase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\KEYAKI_Suite.ViewModel\KEYAKI_Suite.ViewModel.csproj">
+      <Project>{00e6b400-bc16-4627-b2d0-f041ed4288ad}</Project>
+      <Name>KEYAKI_Suite.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\KEYAKI_Suite.YoutubeService.Test\KEYAKI_Suite.YoutubeService\KEYAKI_Suite.YoutubeService.csproj">
+      <Project>{3DE09B8A-772B-4455-A112-89AC3A01B793}</Project>
+      <Name>KEYAKI_Suite.YoutubeService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
