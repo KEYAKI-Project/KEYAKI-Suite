@@ -27,7 +27,7 @@
         </ListView.Behaviors>
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding Title}" Detail="{Binding PostSite}" />
+                <TextCell Text="{Binding Title}" Detail="{Binding PostSite}"/>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
