@@ -1,5 +1,10 @@
-﻿using Prism.Unity;
+﻿using System;
+using System.Reflection;
+using KEYAKI_Suite.ViewModels;
+using Prism.Unity;
 using KEYAKI_Suite.Views;
+using Prism.Mvvm;
+using Prism.Navigation;
 using Xamarin.Forms;
 
 namespace KEYAKI_Suite
@@ -13,6 +18,18 @@ namespace KEYAKI_Suite
             InitializeComponent();
 
             NavigationService.NavigateAsync("MainPage?title=Hello%20from%20Xamarin.Forms");
+        }
+
+        protected override void ConfigureViewModelLocator()
+        {
+            base.ConfigureViewModelLocator();
+
+            PageNavigationTypeResolver.AssignAssemblies<MainPage,MainPageViewModel>();
+            //ViewModelLocationProvider.Register<MainPage,MainPageViewModel>();
+            //ViewModelLocationProvider.Register<KEYAKINewsPage, KEYAKINewsPageViewModel>();
+            //ViewModelLocationProvider.Register<KEYAKIMatomePage,KEYAKIMatomePageViewModel>();
+            ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(PageNavigationTypeResolver
+                .ResolveForViewModelType);
         }
 
         protected override void RegisterTypes()
