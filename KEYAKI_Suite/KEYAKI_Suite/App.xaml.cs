@@ -20,6 +20,7 @@ namespace KEYAKI_Suite
             Container.RegisterTypeForNavigation<NavigationPage>();
             Container.RegisterTypeForNavigation<MainPage>();
             Container.RegisterTypeForNavigation<SettingPage>();
+            Container.RegisterTypeForNavigation<KEYAKINewsPage>();
         }
     }
 }

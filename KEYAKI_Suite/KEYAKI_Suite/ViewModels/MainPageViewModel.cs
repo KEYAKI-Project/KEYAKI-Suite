@@ -14,11 +14,9 @@ namespace KEYAKI_Suite.ViewModels
 {
 	public class MainPageViewModel : BindableBase, INavigationAware
 	{
-	    private readonly KeyakiNewsListUseCase KeyakiNewsListUseCase;
 		private YoutubeDataRepositry _youtubeModel;
 	    private KeyakiMatomeSiteDataRepostiry KeyakiMatomeSiteDataRepostiry;
-
-		public ReactiveCommand<NewsData> NewsTappedEvent { get; set; } = new ReactiveCommand<NewsData>();
+        
 		public ReactiveCommand<Item> YoutubeTapCommand { get; set; } = new ReactiveCommand<Item>();
 	    public ReactiveCommand<KEYAKIBlogData> BlogItemTapCommand { get; set; } = new ReactiveCommand<KEYAKIBlogData>();
         public ReactiveCommand<KEYAKIMatomeData> matomeItemTapCommand { get; set; } = new ReactiveCommand<KEYAKIMatomeData>();
@@ -31,9 +29,6 @@ namespace KEYAKI_Suite.ViewModels
 		{
 			_youtubeModel = youtubeModel;
 		    KeyakiMatomeSiteDataRepostiry = keyakiMatomeSiteDataRepostiry;
-		    KeyakiNewsListUseCase = keyakiNewsListUseCase;
-
-		    NewsDatas = KeyakiNewsListUseCase.NewsDatas;
             
 			Items = _youtubeModel.Youtube;
 
@@ -41,7 +36,6 @@ namespace KEYAKI_Suite.ViewModels
             
 		    
             KeyakiMatomeSiteDataRepostiry.getData();
-            KeyakiNewsListUseCase.FetchNewsDatasAsync();
 
 
             KeyakiBlogDatas = blogDataRepositry.KeyakiBlogDatas;
@@ -50,12 +44,7 @@ namespace KEYAKI_Suite.ViewModels
 				.Where(o => Items.Count != 0)
 				.Where(snippet => snippet != null)
 				.Subscribe(snippet => Device.OpenUri(new Uri("https://www.youtube.com/watch?v=" + snippet.id.videoId)));
-
-			NewsTappedEvent
-				.Where(o => NewsDatas.Count != 0)
-				.Where(o => o != null)
-				.Subscribe(o => Device.OpenUri(new Uri(o.Link)));
-
+            
 		    BlogItemTapCommand
 		        .Where(data => data != null)
 		        .Subscribe(data => Device.OpenUri(new Uri("http://www.keyakizaka46.com/" + data.URL)));
