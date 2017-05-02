@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:converter="clr-namespace:KEYAKI_Suite.Converter;assembly=KEYAKI_Suite"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="KEYAKI_Suite.Views.KEYAKINewsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:SelectedItemChangedEventArgsToSelectedItemConverter x:Key="SelectedItemChangedEventArgsToSelectedItemConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"/>
+    </ContentPage.Padding>
+    <ListView ItemsSource="{Binding NewsDatas}" HasUnevenRows="True" >
+        <ListView.Behaviors>
+            <converter:NotSelectableListViewBehavior />
+            <behaviors:EventToCommandBehavior EventName="ItemSelected" EventArgsConverter="{x:StaticResource SelectedItemChangedEventArgsToSelectedItemConverter}" Command="{Binding NewsTappedEvent}"/>
+        </ListView.Behaviors>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding Text}" Detail="{Binding Detail}" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
