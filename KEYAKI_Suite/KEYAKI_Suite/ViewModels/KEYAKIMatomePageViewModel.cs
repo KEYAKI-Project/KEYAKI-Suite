@@ -2,7 +2,7 @@
 using System;
 using System.Reactive.Linq;
 using KEYAKI_Suite.MatomeService;
-using KEYAKI_Suite.Repositry;
+using KEYAKI_Suite.UseCase;
 using Reactive.Bindings;
 using Xamarin.Forms;
 
@@ -10,19 +10,20 @@ namespace KEYAKI_Suite.ViewModels
 {
     public class KEYAKIMatomePageViewModel : BindableBase
     {
-        private KeyakiMatomeSiteDataRepostiry KeyakiMatomeSiteDataRepostiry;
+        private readonly KeyakisakaMatomeListUseCase KeyakisakaMatomeListUseCase;
 
         public ReactiveCommand<KEYAKIMatomeData> matomeItemTapCommand { get; set; } = new ReactiveCommand<KEYAKIMatomeData>();
 
         public ReactiveCollection<KEYAKIMatomeData> KeyakiMatomeDatas { get; set; }
 
-        public KEYAKIMatomePageViewModel(KeyakiMatomeSiteDataRepostiry keyakiMatomeSiteDataRepostiry)
+        public KEYAKIMatomePageViewModel(KeyakisakaMatomeListUseCase keyakisakaMatomeListUseCase)
         {
-            KeyakiMatomeSiteDataRepostiry = keyakiMatomeSiteDataRepostiry;
+            KeyakisakaMatomeListUseCase = keyakisakaMatomeListUseCase;
 
-            KeyakiMatomeDatas = KeyakiMatomeSiteDataRepostiry.MatomeDatas;
 
-            KeyakiMatomeSiteDataRepostiry.getData();
+            KeyakiMatomeDatas = KeyakisakaMatomeListUseCase.MatomeDatas;
+
+            KeyakisakaMatomeListUseCase.FetchMatomeData();
 
             matomeItemTapCommand
                 .Where(data => data != null)
