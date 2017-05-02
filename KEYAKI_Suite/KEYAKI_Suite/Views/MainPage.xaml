@@ -15,38 +15,7 @@
         </ResourceDictionary>
     </TabbedPage.Resources>
     <TabbedPage.Children>
-
-        <ContentPage Title="まとめサイト">
-            <ContentPage.Padding>
-                <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"/>
-            </ContentPage.Padding>
-            <ContentPage.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource"
-                            iOS="YouTube 2_50px.png"
-                            Android=""
-                            WinPhone="" />
-            </ContentPage.Icon>
-            <ListView ItemsSource="{Binding KeyakiMatomeDatas}" HasUnevenRows="True">
-                <ListView.Behaviors>
-                    <local:NotSelectableListViewBehavior />
-                    <behaviors:EventToCommandBehavior EventName="ItemSelected" EventArgsConverter="{x:StaticResource SelectedItemChangedEventArgsToSelectedItemConverter}" Command="{Binding matomeItemTapCommand}"/>
-                </ListView.Behaviors>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal" Margin="10">
-                                <Image HeightRequest="100" WidthRequest="100" Source="http://cdn.keyakizaka46.com/images/14/fdc/25172f34968d99eeb6ec4443064bb/400_320_102400.jpg"></Image>
-                                <StackLayout>
-                                    <Label Text="{Binding Title}" FontAttributes="Bold"></Label>
-                                    <Label Text="{Binding PostSite}"></Label>
-                                </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ContentPage>
-
+        
         <views:KEYAKINewsPage Title="News">
             <views:KEYAKINewsPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
@@ -73,6 +42,15 @@
                             WinPhone="" />
             </ContentPage.Icon>
         </views:KEYAKIBlogPage>
+        
+        <views:KEYAKIMatomePage Title="まとめサイト">
+            <ContentPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource"
+                            iOS="YouTube 2_50px.png"
+                            Android=""
+                            WinPhone="" />
+            </ContentPage.Icon>
+        </views:KEYAKIMatomePage>
         
         <views:SettingPage Title="著作権情報">
             <views:SettingPage.Icon>
