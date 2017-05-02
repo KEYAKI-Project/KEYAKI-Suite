@@ -46,13 +46,28 @@
   <ItemGroup>
     <Compile Include="Converter\NotItemSelectedBehavior.cs" />
     <Compile Include="Converter\SelectedItemChangedEventArgsToSelectedItemConverter.cs" />
-    <Compile Include="Repositry\KEYAKINewsRepositry.cs" />
     <Compile Include="Repositry\YoutubeDataRepositry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositry\KeyakiBlogDataRepositry.cs" />
     <Compile Include="Repositry\KeyakiMatomeSiteDataRepostiry.cs" />
+    <Compile Include="ViewModels\KEYAKIBlogPageViewModel.cs" />
+    <Compile Include="ViewModels\KEYAKIMatomePageViewModel.cs" />
+    <Compile Include="ViewModels\KEYAKINewsPageViewModel.cs" />
+    <Compile Include="ViewModels\KEYAKIYoutubePageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\SettingPageViewModel.cs" />
+    <Compile Include="Views\KEYAKIBlogPage.xaml.cs">
+      <DependentUpon>KEYAKIBlogPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KEYAKIMatomePage.xaml.cs">
+      <DependentUpon>KEYAKIMatomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KEYAKINewsPage.xaml.cs">
+      <DependentUpon>KEYAKINewsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KEYAKIYoutubePage.xaml.cs">
+      <DependentUpon>KEYAKIYoutubePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SettingPage.xaml.cs">
       <DependentUpon>SettingPage.xaml</DependentUpon>
     </Compile>
@@ -139,12 +154,39 @@
       <Project>{fead2939-2cb8-49c3-b046-3f3f15dd17b0}</Project>
       <Name>KEYAKI_Suite.MatomeService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\KEYAKI_Suite.UseCase\KEYAKI_Suite.UseCase.csproj">
+      <Project>{0da22292-1c43-4687-9af7-35d4552ce3ed}</Project>
+      <Name>KEYAKI_Suite.UseCase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\KEYAKI_Suite.YoutubeService.Test\KEYAKI_Suite.YoutubeService\KEYAKI_Suite.YoutubeService.csproj">
       <Project>{3de09b8a-772b-4455-a112-89ac3a01b793}</Project>
       <Name>KEYAKI_Suite.YoutubeService</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Views\KEYAKINewsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\KEYAKIYoutubePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\KEYAKIBlogPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\KEYAKIMatomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="KEYAKI_Suite.KEYAKINewsService.cs" />
+    <Compile Include="KEYAKINewsService.cs" />
     <Compile Include="NewsData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
