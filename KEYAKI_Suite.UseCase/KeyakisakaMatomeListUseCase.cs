@@ -6,18 +6,18 @@ namespace KEYAKI_Suite.UseCase
 {
     public class KeyakisakaMatomeListUseCase
     {
-        private readonly KEYAKIMatomeService KeyakiMatomeService;
+        private readonly KEYAKIMatomeService _keyakiMatomeService;
 
         public ReactiveCollection<KEYAKIMatomeData> MatomeDatas { get; set; } = new ReactiveCollection<KEYAKIMatomeData>();
 
         public KeyakisakaMatomeListUseCase(KEYAKIMatomeService keyakiMatomeService)
         {
-            KeyakiMatomeService = keyakiMatomeService;
+            _keyakiMatomeService = keyakiMatomeService;
         }
 
-        public async void Fetch()
+        public async void FetchMatomeData()
         {
-            var keyakiMatomeDatas = await KeyakiMatomeService.GetMatomeData();
+            var keyakiMatomeDatas = await _keyakiMatomeService.GetMatomeData();
             keyakiMatomeDatas.ForEach(data => MatomeDatas.Add(data));
         }
     }

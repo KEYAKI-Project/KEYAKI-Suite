@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace KEYAKI_Suite.ViewModels
 {
-    public class KEYAKIMatomePageViewModel : BindableBase
+    public class KeyakiMatomePageViewModel : BindableBase
     {
         private readonly KeyakisakaMatomeListUseCase KeyakisakaMatomeListUseCase;
 
@@ -16,11 +16,10 @@ namespace KEYAKI_Suite.ViewModels
 
         public ReactiveCollection<KEYAKIMatomeData> KeyakiMatomeDatas { get; set; }
 
-        public KEYAKIMatomePageViewModel(KeyakisakaMatomeListUseCase keyakisakaMatomeListUseCase)
+        public KeyakiMatomePageViewModel(KeyakisakaMatomeListUseCase keyakisakaMatomeListUseCase)
         {
             KeyakisakaMatomeListUseCase = keyakisakaMatomeListUseCase;
-
-
+            
             KeyakiMatomeDatas = KeyakisakaMatomeListUseCase.MatomeDatas;
 
             KeyakisakaMatomeListUseCase.FetchMatomeData();

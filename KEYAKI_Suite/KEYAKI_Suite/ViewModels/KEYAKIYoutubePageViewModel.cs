@@ -1,11 +1,7 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reactive.Linq;
 using KEYAKI_Suit.YoutubeService;
-using KEYAKI_Suite.Repositry;
 using KEYAKI_Suite.UseCase;
 using Reactive.Bindings;
 using Xamarin.Forms;
