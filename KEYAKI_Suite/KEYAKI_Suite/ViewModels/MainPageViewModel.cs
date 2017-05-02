@@ -8,12 +8,13 @@ using KEYAKI_Suit.YoutubeService;
 using KEYAKI_Suite.KEYAKIBlogService;
 using KEYAKI_Suite.MatomeService;
 using KEYAKI_Suite.Repositry;
+using KEYAKI_Suite.UseCase;
 
 namespace KEYAKI_Suite.ViewModels
 {
 	public class MainPageViewModel : BindableBase, INavigationAware
 	{
-		private KEYAKINewsRepositry _keyakiNewsModel;
+	    private readonly KeyakiNewsListUseCase KeyakiNewsListUseCase;
 		private YoutubeDataRepositry _youtubeModel;
 	    private KeyakiMatomeSiteDataRepostiry KeyakiMatomeSiteDataRepostiry;
 
@@ -26,13 +27,13 @@ namespace KEYAKI_Suite.ViewModels
 	    public ReactiveCollection<KEYAKIBlogData> KeyakiBlogDatas { get; set; }
 		public ReactiveCollection<Item> Items { get; set; }
 	    public ReactiveCollection<KEYAKIMatomeData> KeyakiMatomeDatas { get; set; }
-        public MainPageViewModel(KEYAKINewsRepositry keyakiNewsModel, YoutubeDataRepositry youtubeModel, KeyakiBlogDataRepositry blogDataRepositry, KeyakiMatomeSiteDataRepostiry keyakiMatomeSiteDataRepostiry)
+        public MainPageViewModel(YoutubeDataRepositry youtubeModel, KeyakiBlogDataRepositry blogDataRepositry, KeyakiMatomeSiteDataRepostiry keyakiMatomeSiteDataRepostiry, KeyakiNewsListUseCase keyakiNewsListUseCase)
 		{
-			_keyakiNewsModel = keyakiNewsModel;
 			_youtubeModel = youtubeModel;
 		    KeyakiMatomeSiteDataRepostiry = keyakiMatomeSiteDataRepostiry;
-		    
-		    NewsDatas = _keyakiNewsModel.NewsDatas;
+		    KeyakiNewsListUseCase = keyakiNewsListUseCase;
+
+		    NewsDatas = KeyakiNewsListUseCase.NewsDatas;
             
 			Items = _youtubeModel.Youtube;
 
@@ -40,6 +41,8 @@ namespace KEYAKI_Suite.ViewModels
             
 		    
             KeyakiMatomeSiteDataRepostiry.getData();
+            KeyakiNewsListUseCase.FetchNewsDatasAsync();
+
 
             KeyakiBlogDatas = blogDataRepositry.KeyakiBlogDatas;
 
