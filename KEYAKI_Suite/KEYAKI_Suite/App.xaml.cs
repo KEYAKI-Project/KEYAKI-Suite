@@ -22,6 +22,7 @@ namespace KEYAKI_Suite
             Container.RegisterTypeForNavigation<SettingPage>();
             Container.RegisterTypeForNavigation<KEYAKINewsPage>();
             Container.RegisterTypeForNavigation<KEYAKIYoutubePage>();
+            Container.RegisterTypeForNavigation<KEYAKIBlogPage>();
         }
     }
 }

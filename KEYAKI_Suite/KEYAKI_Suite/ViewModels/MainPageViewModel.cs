@@ -16,34 +16,19 @@ namespace KEYAKI_Suite.ViewModels
 	{
 		
 	    private KeyakiMatomeSiteDataRepostiry KeyakiMatomeSiteDataRepostiry;
-        
-		
-	    public ReactiveCommand<KEYAKIBlogData> BlogItemTapCommand { get; set; } = new ReactiveCommand<KEYAKIBlogData>();
-        public ReactiveCommand<KEYAKIMatomeData> matomeItemTapCommand { get; set; } = new ReactiveCommand<KEYAKIMatomeData>();
 
-        public ReactiveCollection<NewsData> NewsDatas { get; set; }
-	    public ReactiveCollection<KEYAKIBlogData> KeyakiBlogDatas { get; set; }
-		
+        public ReactiveCommand<KEYAKIMatomeData> matomeItemTapCommand { get; set; } = new ReactiveCommand<KEYAKIMatomeData>();
+        
 	    public ReactiveCollection<KEYAKIMatomeData> KeyakiMatomeDatas { get; set; }
+
         public MainPageViewModel(YoutubeDataRepositry youtubeModel, KeyakiBlogDataRepositry blogDataRepositry, KeyakiMatomeSiteDataRepostiry keyakiMatomeSiteDataRepostiry, KeyakiNewsListUseCase keyakiNewsListUseCase)
 		{
 		    KeyakiMatomeSiteDataRepostiry = keyakiMatomeSiteDataRepostiry;
-            
 
-		    KeyakiMatomeDatas = KeyakiMatomeSiteDataRepostiry.MatomeDatas;
+            KeyakiMatomeDatas = KeyakiMatomeSiteDataRepostiry.MatomeDatas;
             
-		    
             KeyakiMatomeSiteDataRepostiry.getData();
-
-
-            KeyakiBlogDatas = blogDataRepositry.KeyakiBlogDatas;
-
-			
             
-		    BlogItemTapCommand
-		        .Where(data => data != null)
-		        .Subscribe(data => Device.OpenUri(new Uri("http://www.keyakizaka46.com/" + data.URL)));
-
 		    matomeItemTapCommand
 		        .Where(data => data != null)
 		        .Subscribe(data => Device.OpenUri(new Uri(data.PostURL)));
