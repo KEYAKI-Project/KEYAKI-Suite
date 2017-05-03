@@ -57,8 +57,8 @@ namespace KEYAKI_Suite.KEYAKIBlogService
 
 	                var imageUrl = node.ChindSelectByClass("box-article")
 	                    .Descendants("img")
-                        .First()
-	                    .GetAttributeValue("src", "");
+                        .FirstOrDefault()?
+	                    .GetAttributeValue("src", "") ?? "http://cdn.keyakizaka46.com/files/14/images/blog/default.jpg";
 
 	                var blogURL = node
 	                    .ChindSelectByClass("innerHead")
