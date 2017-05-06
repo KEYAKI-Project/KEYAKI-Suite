@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using KEYAKI_Suite.ViewModel;
 using KEYAKI_Suite.ViewModels;
 using Prism.Unity;
 using KEYAKI_Suite.Views;
@@ -23,13 +24,8 @@ namespace KEYAKI_Suite
         protected override void ConfigureViewModelLocator()
         {
             base.ConfigureViewModelLocator();
-
-            PageNavigationTypeResolver.AssignAssemblies<MainPage,MainPageViewModel>();
-            //ViewModelLocationProvider.Register<MainPage,MainPageViewModel>();
-            //ViewModelLocationProvider.Register<KEYAKINewsPage, KEYAKINewsPageViewModel>();
-            //ViewModelLocationProvider.Register<KEYAKIMatomePage,KEYAKIMatomePageViewModel>();
-            ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(PageNavigationTypeResolver
-                .ResolveForViewModelType);
+            
+            ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(ViewTypeToViewModelTypeResolver.Resolve);
         }
 
         protected override void RegisterTypes()

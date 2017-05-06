@@ -42,6 +42,7 @@
     <Compile Include="MainPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingPageViewModel.cs" />
+    <Compile Include="ViewTypeToViewModelTypeResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Prism, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
