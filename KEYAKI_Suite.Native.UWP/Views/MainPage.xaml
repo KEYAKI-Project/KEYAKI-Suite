@@ -6,10 +6,27 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:mvvm="using:Prism.Windows.Mvvm"
+    xmlns:viewModels="using:KEYAKI_Suite.Native.UWP.ViewModels"
     mvvm:ViewModelLocator.AutoWireViewModel="True"
+    d:DataContext="{d:DesignInstance Type=viewModels:MainPageViewModel}"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button Content="{Binding Greeting.Value}"></Button>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+        <Pivot Background="#5eb954">
+            <PivotItem Header="News">
+                <ListView ItemsSource="{Binding NewsDatas}" Background="White">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <UserControl>
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource TitleTextBlockStyle}"  Text="{Binding Text}" Foreground="#FF212121" />
+                                    <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="{Binding Detail}" Foreground="#FF757575"  />
+                                </StackPanel>
+                            </UserControl>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </PivotItem>
+        </Pivot>
     </Grid>
 </Page>
