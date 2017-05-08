@@ -8,6 +8,5 @@ namespace KEYAKI_Suite.Views
         {
             InitializeComponent();
         }
-        
     }
 }
