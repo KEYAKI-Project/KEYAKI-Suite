@@ -17,7 +17,29 @@
                 <DataTemplate>
                     <UserControl>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="{Binding snippet.thumbnails.medium.url}" Height="Auto" Width="Auto"/>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup>
+                                    <VisualState x:Name="WideWindow">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="720"></AdaptiveTrigger>
+                                        </VisualState.StateTriggers>
+                                        <VisualState.Setters>
+                                            <Setter Target="YoutubeImage.Width" Value="300"></Setter>
+                                            <Setter Target="YoutubeImage.Height" Value="300"></Setter>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="SmallWindow">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="0"></AdaptiveTrigger>
+                                        </VisualState.StateTriggers>
+                                        <VisualState.Setters>
+                                            <Setter Target="YoutubeImage.Width" Value="100"></Setter>
+                                            <Setter Target="YoutubeImage.Height" Value="100"></Setter>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Image x:Name="YoutubeImage" Source="{Binding snippet.thumbnails.medium.url}" Height="Auto" Width="Auto"/>
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="{Binding snippet.title}"></TextBlock>
                                 <TextBlock Style="{StaticResource BodyTextBlockStyle}" Text="{Binding snippet.description}"></TextBlock>
