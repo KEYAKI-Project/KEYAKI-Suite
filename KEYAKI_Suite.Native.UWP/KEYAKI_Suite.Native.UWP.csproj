@@ -100,8 +100,16 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\NewsPageViewModel.cs" />
+    <Compile Include="ViewModels\YoutubePageViewModel.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewsPage.xaml.cs">
+      <DependentUpon>NewsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\YoutubePage.xaml.cs">
+      <DependentUpon>YoutubePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +141,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\NewsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\YoutubePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
@@ -153,6 +169,10 @@
     <ProjectReference Include="..\KEYAKI_Suite.UseCase\KEYAKI_Suite.UseCase.csproj">
       <Project>{0da22292-1c43-4687-9af7-35d4552ce3ed}</Project>
       <Name>KEYAKI_Suite.UseCase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KEYAKI_Suite.YoutubeService.Test\KEYAKI_Suite.YoutubeService\KEYAKI_Suite.YoutubeService.csproj">
+      <Project>{3DE09B8A-772B-4455-A112-89AC3A01B793}</Project>
+      <Name>KEYAKI_Suite.YoutubeService</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
