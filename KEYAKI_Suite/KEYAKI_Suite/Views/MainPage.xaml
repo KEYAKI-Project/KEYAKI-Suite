@@ -8,12 +8,6 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="KEYAKI_Suite.Views.MainPage"
              Title="MainPage">
-
-    <TabbedPage.Resources>
-        <ResourceDictionary>
-            <local:SelectedItemChangedEventArgsToSelectedItemConverter x:Key="SelectedItemChangedEventArgsToSelectedItemConverter"/>
-        </ResourceDictionary>
-    </TabbedPage.Resources>
     <TabbedPage.Children>
         
         <views:KEYAKINewsPage Title="News">
