@@ -14,18 +14,10 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
         <Pivot Background="#5eb954">
             <PivotItem Header="News">
-                <ListView ItemsSource="{Binding NewsDatas}" Background="White">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <UserControl>
-                                <StackPanel>
-                                    <TextBlock Style="{StaticResource TitleTextBlockStyle}"  Text="{Binding Text}" Foreground="#FF212121" />
-                                    <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="{Binding Detail}" Foreground="#FF757575"  />
-                                </StackPanel>
-                            </UserControl>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                <local:NewsPage></local:NewsPage>
+            </PivotItem>
+            <PivotItem Header="Youtube">
+                <local:YoutubePage />
             </PivotItem>
         </Pivot>
     </Grid>
