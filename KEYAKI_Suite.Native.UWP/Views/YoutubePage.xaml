@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="KEYAKI_Suite.Native.UWP.Views.YoutubePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KEYAKI_Suite.Native.UWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mvvm="using:Prism.Windows.Mvvm"
+    xmlns:viewModels="using:KEYAKI_Suite.Native.UWP.ViewModels"
+    mvvm:ViewModelLocator.AutoWireViewModel="True"
+    d:DataContext="{d:DesignInstance viewModels:YoutubePageViewModel}"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListView ItemsSource="{Binding YoutubeItems}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <UserControl>
+                        <StackPanel Orientation="Horizontal">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup>
+                                    <VisualState x:Name="WideWindow">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="720"></AdaptiveTrigger>
+                                        </VisualState.StateTriggers>
+                                        <VisualState.Setters>
+                                            <Setter Target="YoutubeImage.Width" Value="300"></Setter>
+                                            <Setter Target="YoutubeImage.Height" Value="300"></Setter>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="SmallWindow">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="0"></AdaptiveTrigger>
+                                        </VisualState.StateTriggers>
+                                        <VisualState.Setters>
+                                            <Setter Target="YoutubeImage.Width" Value="100"></Setter>
+                                            <Setter Target="YoutubeImage.Height" Value="100"></Setter>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Image x:Name="YoutubeImage" Source="{Binding snippet.thumbnails.medium.url}" Height="Auto" Width="Auto"/>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="{Binding snippet.title}"></TextBlock>
+                                <TextBlock Style="{StaticResource BodyTextBlockStyle}" Text="{Binding snippet.description}"></TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </UserControl>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
