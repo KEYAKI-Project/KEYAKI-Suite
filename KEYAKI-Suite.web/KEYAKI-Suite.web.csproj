@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
+    <BuildForLiveUnitTesting>false</BuildForLiveUnitTesting>
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <ApplicationInsightsResourceId>/subscriptions/41bca5f9-c489-4fcd-b7e1-3da7b8ce3a36/resourcegroups/KEYAKI/providers/microsoft.insights/components/KEYAKI-Suite</ApplicationInsightsResourceId>
     <ApplicationInsightsAnnotationResourceId>/subscriptions/41bca5f9-c489-4fcd-b7e1-3da7b8ce3a36/resourcegroups/KEYAKI/providers/microsoft.insights/components/KEYAKI-Suite</ApplicationInsightsAnnotationResourceId>
