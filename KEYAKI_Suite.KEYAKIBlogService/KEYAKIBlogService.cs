@@ -9,14 +9,14 @@ namespace KEYAKI_Suite.KEYAKIBlogService
 {
     public class KeyakiBlogService : IKeyakiBlogService
     {
-	    public async Task<List<KEYAKIBlogData>> GetBlogData(int pageNumber = 0, int articleNumber = 25)
+	    public async Task<IEnumerable<KEYAKIBlogData>> GetBlogData(int pageNumber = 0, int articleNumber = 25)
 	    {
 	        var url = GenerateKeyakiBlogUrl(pageNumber,articleNumber);
 	        var htmlText = await GetKeyakibLoghtmlAsync(url);
 	        return AnalyzeHtml(htmlText);
 	    }
         
-	    private List<KEYAKIBlogData> AnalyzeHtml(string html)
+	    private IEnumerable<KEYAKIBlogData> AnalyzeHtml(string html)
 	    {
 	        if (string.IsNullOrWhiteSpace(html)) return null;
 
