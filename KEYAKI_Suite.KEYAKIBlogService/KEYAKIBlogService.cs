@@ -11,7 +11,7 @@ namespace KEYAKI_Suite.KEYAKIBlogService
     {
 	    public async Task<List<KEYAKIBlogData>> GetBlogData(int pageNumber = 0, int articleNumber = 25)
 	    {
-	        var url = GenerateKEYAKIBlogURL(pageNumber,articleNumber);
+	        var url = GenerateKeyakiBlogUrl(pageNumber,articleNumber);
 	        var htmlText = await GetKeyakibLoghtmlAsync(url);
 	        return AnalyzeHtml(htmlText);
 	    }
@@ -84,11 +84,10 @@ namespace KEYAKI_Suite.KEYAKIBlogService
 	        }
 	    }
 
-	    private string GenerateKEYAKIBlogURL(int pageNumber = 0, int articleNumber = 25)
+	    private string GenerateKeyakiBlogUrl(int pageNumber = 0, int articleNumber = 25)
 	    {
 	        if (pageNumber < 0 || articleNumber < 0) return "";
 	        return $"http://www.keyakizaka46.com/s/k46o/diary/member/list?ima=0000&page={pageNumber}&rw={articleNumber}&cd=member";
-
 	    }
 	}
 }
