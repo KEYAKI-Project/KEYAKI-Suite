@@ -27,8 +27,8 @@ namespace KEYAKI_Suite.KEYAKIBlogService.Test
         public async Task 正常に欅坂46のブログからデータを取得できているかのテスト()
         {
             var url = (KeyakiBlogService.AsDynamic().GenerateKEYAKIBlogURL(0, 25) as string);
-            (await KeyakiBlogService.AsDynamic().GetKEYAKIBLoghtmlAsync(url) as string).IsNot("");
-            (await KeyakiBlogService.AsDynamic().GetKEYAKIBLoghtmlAsync(url) as string).IsNotNull();
+            (await KeyakiBlogService.AsDynamic().GetKeyakibLoghtmlAsync(url) as string).IsNot("");
+            (await KeyakiBlogService.AsDynamic().GetKeyakibLoghtmlAsync(url) as string).IsNotNull();
         }
     }
 }

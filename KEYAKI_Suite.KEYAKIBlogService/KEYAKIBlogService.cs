@@ -9,14 +9,14 @@ namespace KEYAKI_Suite.KEYAKIBlogService
 {
     public class KeyakiBlogService : IKeyakiBlogService
     {
-	    public async Task<List<KEYAKIBlogData>> GetBlogData(int pageNumber = 0, int ArticleNumber = 25)
+	    public async Task<List<KEYAKIBlogData>> GetBlogData(int pageNumber = 0, int articleNumber = 25)
 	    {
-	        var url = GenerateKEYAKIBlogURL(pageNumber,ArticleNumber);
-	        var htmlText = await GetKEYAKIBLoghtmlAsync(url);
-	        return AnalyzeHTML(htmlText);
+	        var url = GenerateKEYAKIBlogURL(pageNumber,articleNumber);
+	        var htmlText = await GetKeyakibLoghtmlAsync(url);
+	        return AnalyzeHtml(htmlText);
 	    }
         
-	    private List<KEYAKIBlogData> AnalyzeHTML(string html)
+	    private List<KEYAKIBlogData> AnalyzeHtml(string html)
 	    {
 	        if (string.IsNullOrWhiteSpace(html)) return null;
 
@@ -73,7 +73,7 @@ namespace KEYAKI_Suite.KEYAKIBlogService
 	        return blogdata;
 	    }
 
-	    private async Task<string> GetKEYAKIBLoghtmlAsync(string url)
+	    private async Task<string> GetKeyakibLoghtmlAsync(string url)
 	    {
 	        if (string.IsNullOrWhiteSpace(url)) return "";
 	        using (var client = new HttpClient())
