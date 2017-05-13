@@ -1,4 +1,4 @@
-﻿namespace KEYAKI_Suite
+﻿namespace KEYAKI_Suite.Entity
 {
     public class NewsData
     {

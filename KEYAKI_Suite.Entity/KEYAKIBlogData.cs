@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KEYAKI_Suite.KEYAKIBlogService
+namespace KEYAKI_Suite.Entity
 {
     public class KEYAKIBlogData
     {
