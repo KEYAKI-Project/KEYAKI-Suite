@@ -7,16 +7,16 @@ using AgilityExtension;
 
 namespace KEYAKI_Suite.KEYAKIBlogService
 {
-    public class KeyakiBlogService 
-	{
-	    public async Task<List<KEYAKIBlogData>> GetBlogData(int pageNumber = 0, int ArticleNumber = 25)
+    public class KeyakiBlogService : IKeyakiBlogService
+    {
+	    public async Task<IEnumerable<KEYAKIBlogData>> GetBlogData(int pageNumber = 0, int articleNumber = 25)
 	    {
-	        var url = GenerateKEYAKIBlogURL(pageNumber,ArticleNumber);
-	        var htmlText = await GetKEYAKIBLoghtmlAsync(url);
-	        return AnalyzeHTML(htmlText);
+	        var url = GenerateKeyakiBlogUrl(pageNumber,articleNumber);
+	        var htmlText = await GetKeyakibLoghtmlAsync(url);
+	        return AnalyzeHtml(htmlText);
 	    }
         
-	    private List<KEYAKIBlogData> AnalyzeHTML(string html)
+	    private IEnumerable<KEYAKIBlogData> AnalyzeHtml(string html)
 	    {
 	        if (string.IsNullOrWhiteSpace(html)) return null;
 
@@ -73,7 +73,7 @@ namespace KEYAKI_Suite.KEYAKIBlogService
 	        return blogdata;
 	    }
 
-	    private async Task<string> GetKEYAKIBLoghtmlAsync(string url)
+	    private async Task<string> GetKeyakibLoghtmlAsync(string url)
 	    {
 	        if (string.IsNullOrWhiteSpace(url)) return "";
 	        using (var client = new HttpClient())
@@ -84,11 +84,10 @@ namespace KEYAKI_Suite.KEYAKIBlogService
 	        }
 	    }
 
-	    private string GenerateKEYAKIBlogURL(int PageNumber = 0, int articleNumber = 25)
+	    private string GenerateKeyakiBlogUrl(int pageNumber = 0, int articleNumber = 25)
 	    {
-	        if (PageNumber < 0 || articleNumber < 0) return "";
-	        return $"http://www.keyakizaka46.com/s/k46o/diary/member/list?ima=0000&page={PageNumber}&rw={articleNumber}&cd=member";
-
+	        if (pageNumber < 0 || articleNumber < 0) return "";
+	        return $"http://www.keyakizaka46.com/s/k46o/diary/member/list?ima=0000&page={pageNumber}&rw={articleNumber}&cd=member";
 	    }
 	}
 }
