@@ -7,8 +7,8 @@ using AgilityExtension;
 
 namespace KEYAKI_Suite.KEYAKIBlogService
 {
-    public class KeyakiBlogService 
-	{
+    public class KeyakiBlogService : IKeyakiBlogService
+    {
 	    public async Task<List<KEYAKIBlogData>> GetBlogData(int pageNumber = 0, int ArticleNumber = 25)
 	    {
 	        var url = GenerateKEYAKIBlogURL(pageNumber,ArticleNumber);
