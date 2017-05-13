@@ -84,10 +84,10 @@ namespace KEYAKI_Suite.KEYAKIBlogService
 	        }
 	    }
 
-	    private string GenerateKEYAKIBlogURL(int PageNumber = 0, int articleNumber = 25)
+	    private string GenerateKEYAKIBlogURL(int pageNumber = 0, int articleNumber = 25)
 	    {
-	        if (PageNumber < 0 || articleNumber < 0) return "";
-	        return $"http://www.keyakizaka46.com/s/k46o/diary/member/list?ima=0000&page={PageNumber}&rw={articleNumber}&cd=member";
+	        if (pageNumber < 0 || articleNumber < 0) return "";
+	        return $"http://www.keyakizaka46.com/s/k46o/diary/member/list?ima=0000&page={pageNumber}&rw={articleNumber}&cd=member";
 
 	    }
 	}
