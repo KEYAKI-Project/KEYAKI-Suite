@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="IKeyakiBlogService.cs" />
     <Compile Include="KEYAKIBlogData.cs" />
     <Compile Include="KEYAKIBlogService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
