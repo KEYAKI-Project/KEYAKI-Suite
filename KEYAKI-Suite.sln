@@ -52,10 +52,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KEYAKI_Suite.Native.UWP", "KEYAKI_Suite.Native.UWP\KEYAKI_Suite.Native.UWP.csproj", "{C954302E-E737-4F4D-8DD8-F4F339583038}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iOS", "iOS", "{7AA67EA1-4EAB-41B8-9525-78ED083B4DA5}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KEYAKI_Suite.Entity", "KEYAKI_Suite.Entity\KEYAKI_Suite.Entity.csproj", "{8BC30B6C-34A9-40AE-8B4C-6AFEAFF6B230}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iOS", "iOS", "{C26F3B06-674D-4FEC-BBC9-534CD9643556}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iOS", "iOS", "{7AA67EA1-4EAB-41B8-9525-78ED083B4DA5}"
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -251,6 +252,7 @@ Global
 		{58ED63F0-AC18-4607-98C7-2CD78C435B20}.AppStore|x64.ActiveCfg = AppStore|iPhone
 		{58ED63F0-AC18-4607-98C7-2CD78C435B20}.AppStore|x86.ActiveCfg = AppStore|iPhone
 		{58ED63F0-AC18-4607-98C7-2CD78C435B20}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{58ED63F0-AC18-4607-98C7-2CD78C435B20}.Debug|Any CPU.Build.0 = Debug|iPhone
 		{58ED63F0-AC18-4607-98C7-2CD78C435B20}.Debug|ARM.ActiveCfg = Debug|iPhone
 		{58ED63F0-AC18-4607-98C7-2CD78C435B20}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{58ED63F0-AC18-4607-98C7-2CD78C435B20}.Debug|iPhone.Build.0 = Debug|iPhone
