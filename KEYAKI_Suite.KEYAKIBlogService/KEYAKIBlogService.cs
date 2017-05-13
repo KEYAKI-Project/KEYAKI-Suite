@@ -4,20 +4,19 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using AgilityExtension;
-using KEYAKI_Suite.Entity;
 
 namespace KEYAKI_Suite.KEYAKIBlogService
 {
     public class KeyakiBlogService : IKeyakiBlogService
     {
-	    public async Task<IEnumerable<Entity.KEYAKIBlogData>> GetBlogData(int pageNumber = 0, int articleNumber = 25)
+	    public async Task<IEnumerable<KEYAKIBlogData>> GetBlogData(int pageNumber = 0, int articleNumber = 25)
 	    {
 	        var url = GenerateKeyakiBlogUrl(pageNumber,articleNumber);
 	        var htmlText = await GetKeyakibLoghtmlAsync(url);
 	        return AnalyzeHtml(htmlText);
 	    }
         
-	    private IEnumerable<Entity.KEYAKIBlogData> AnalyzeHtml(string html)
+	    private IEnumerable<KEYAKIBlogData> AnalyzeHtml(string html)
 	    {
 	        if (string.IsNullOrWhiteSpace(html)) return null;
 
@@ -68,7 +67,7 @@ namespace KEYAKI_Suite.KEYAKIBlogService
 	                    .Descendants("a").Single()
                         .GetAttributeValue("href", "");
 
-	                return new Entity.KEYAKIBlogData{ Title = title,PostDatetime = postdata,PostWriter = postmember, ImageURL = imageUrl, URL = blogURL };
+	                return new KEYAKIBlogData{Title = title,PostDatetime = postdata,PostWriter = postmember, ImageURL = imageUrl, URL = blogURL };
 	            })
 	            .ToList();
 	        return blogdata;
