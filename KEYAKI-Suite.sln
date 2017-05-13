@@ -54,6 +54,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iOS", "iOS", "{7AA67EA1-4EAB-41B8-9525-78ED083B4DA5}"
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KEYAKI_Suite.Entity", "KEYAKI_Suite.Entity\KEYAKI_Suite.Entity.csproj", "{8BC30B6C-34A9-40AE-8B4C-6AFEAFF6B230}"
 EndProject
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iOS", "iOS", "{7AA67EA1-4EAB-41B8-9525-78ED083B4DA5}"
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
